@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --terra: #c8553e;
+  --terra-dark: #a03e2a;
+  --terra-light: #e8856d;
+  --terra-pale: #fdeae5;
+  --brown: #8b6348;
+  --cream: #fdf6ec;
+  --warm-white: #fffbf7;
+  --text: #2e1a0e;
+  --text-muted: #7a5a48;
+  --border: #e8d5c4;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; }
+a { color: var(--terra); text-decoration: none; }
+a:hover { color: var(--terra-dark); text-decoration: underline; }
+h1, h2, h3 { font-family: 'Lora', serif; font-weight: 700; color: var(--text); }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }

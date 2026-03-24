@@ -1,0 +1,26 @@
+---
+interface Props { title: string; description: string; slug: string; pubDate: Date; tags?: string[]; }
+const { title, description, slug, pubDate, tags } = Astro.props;
+const dateStr = new Date(pubDate).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<article class="warm-card">
+  {tags?.[0] && <span class="warm-cat">{tags[0]}</span>}
+  <h2><a href={`/blog/${slug}`}>{title}</a></h2>
+  <p>{description}</p>
+  <footer class="warm-foot">
+    <time>🌻 {dateStr}</time>
+    <a href={`/blog/${slug}`} class="warm-link">Czytaj dalej →</a>
+  </footer>
+</article>
+<style>
+.warm-card { background: var(--warm-white); border: 1px solid var(--border); border-radius: 6px; padding: 1.5rem; transition: box-shadow 0.2s; }
+.warm-card:hover { box-shadow: 0 4px 16px rgba(200,85,62,0.12); }
+.warm-cat { display: inline-block; background: var(--terra-pale); color: var(--terra-dark); font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 3px; margin-bottom: 0.6rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.warm-card h2 { font-family: 'Lora', serif; font-size: 1.15rem; margin-bottom: 0.6rem; line-height: 1.3; }
+.warm-card h2 a { color: var(--text); }
+.warm-card h2 a:hover { color: var(--terra); text-decoration: none; }
+.warm-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1rem; }
+.warm-foot { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 0.75rem; }
+time { font-size: 0.78rem; color: var(--text-muted); }
+.warm-link { color: var(--terra); font-weight: 700; font-size: 0.85rem; }
+</style>
